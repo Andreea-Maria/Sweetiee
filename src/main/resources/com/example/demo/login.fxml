@@ -5,30 +5,27 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
+<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #FFB6C1;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <ImageView fx:id="brandingImageView" fitHeight="600.0" fitWidth="393.0" pickOnBounds="true" preserveRatio="true" />
-   <AnchorPane prefHeight="249.0" prefWidth="466.0">
+   <AnchorPane prefHeight="200.0" prefWidth="200.0">
       <children>
-         <Label layoutX="67.0" layoutY="58.0" text="Username" />
-         <TextField fx:id="usernameTextField" layoutX="140.0" layoutY="54.0" promptText="Username" />
-         <Label layoutX="68.0" layoutY="104.0" text="Password" />
-         <PasswordField fx:id="passwordTextField" layoutX="140.0" layoutY="100.0" promptText="Password" />
-          <Button fx:id="loginButton" layoutX="164.0" layoutY="169.0" onAction="#onHelloButtonClick" prefHeight="26.0" prefWidth="76.0" text="Login" />
-         <Label fx:id="loginMessageLabel" layoutX="119.0" layoutY="135.0" prefHeight="26.0" prefWidth="161.0" textFill="#ff0808" />
+         <AnchorPane layoutX="221.0" prefHeight="403.0" prefWidth="290.0" style="-fx-background-color: #FFC0CB;">
+            <children>
+               <Label layoutX="42.0" layoutY="104.0" text="Password" />
+               <PasswordField fx:id="passwordTextField" layoutX="118.0" layoutY="100.0" promptText="Password" />
+                <Button fx:id="loginButton" layoutX="107.0" layoutY="175.0" onAction="#onHelloButtonClick" prefHeight="26.0" prefWidth="76.0" text="Login" />
+               <Label fx:id="loginMessageLabel" layoutX="119.0" layoutY="135.0" prefHeight="26.0" prefWidth="161.0" textFill="#ff0808" />
+               <TextField fx:id="usernameTextField" layoutX="118.0" layoutY="56.0" promptText="Username" />
+               <Label layoutX="41.0" layoutY="60.0" text="Username" />
+            </children>
+         </AnchorPane>
+         <AnchorPane layoutX="10.0" prefHeight="403.0" prefWidth="178.0" style="-fx-background-color: #FFC0CB;">
+            <children>
+               <ImageView fx:id="brandingImageView" fitHeight="403.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+         </AnchorPane>
       </children>
    </AnchorPane>
-
-    <Label fx:id="welcomeText" />
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="465.0">
-        <children>
-            <ImageView fx:id="AnchorPaneScrollPaneImageView" fitHeight="479.0" fitWidth="585.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../../../../Images/1.png" />
-                </image>
-            </ImageView>
-        </children>
-    </AnchorPane>
 </VBox>
