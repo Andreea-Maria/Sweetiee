@@ -1,7 +1,9 @@
 package com.example.demo;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -39,7 +41,7 @@ public class LoginController implements Initializable {
         DatabaseConnection connection = new DatabaseConnection();
         Connection connectDB = connection.getConnection();
 
-        String verifyLogin = "SELECT count(1) FROM login WHERE username = " + usernameTextField.getText() + "AND password = " + passwordField.getText() + "";
+        String verifyLogin = "SELECT count(1) FROM user_account WHERE username = '"+ usernameTextField.getText() + "' AND password = '" + passwordField.getText() + "'";
 
         try {
             Statement statement = connectDB.createStatement();
@@ -47,7 +49,8 @@ public class LoginController implements Initializable {
 
             while (queryResult.next()){
                 if(queryResult.getInt(1)==1){
-                    loginMessageLabel.setText("Congratulations!");
+                   // loginMessageLabel.setText("Congratulations!");
+                    createAccountForm();
                 } else {
                     loginMessageLabel.setText("Invalid login. Please try again.");
                 }
@@ -57,6 +60,22 @@ public class LoginController implements Initializable {
             e.getCause();
         }
 
+    }
+
+    public void createAccountForm(){
+        try{
+
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("register.fxml"));
+            Stage registerStage = new Stage();
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            registerStage.setTitle("SweetApp");
+            registerStage.setScene(scene);
+            registerStage.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 
     public void loginButtonOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -79,6 +98,7 @@ public class LoginController implements Initializable {
         Image brandingImage = new Image(brandingFile.toURI().toString());
         brandingImageView.setImage(brandingImage);
     }
+
 
 
 }
